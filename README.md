@@ -13,7 +13,7 @@
 
   Data description:
 
-* **Age_cat**: Patient age, categorized ($\small\leq$ 50, 50 - 59, 60 - 69, 70 - 79, 80 - 89, $\small>$ 90)
+* **Age_cat**: Patient age, categorized (less or equal to 50, 50 - 59, 60 - 69, 70 - 79, 80 - 89, over 90)
 * **Sex_m**: Patient gender (0 = Male, 1 = Female)
 * **N_comobidities**: Number of medical conditions, capped at 3
 * **DaysToDeath**: Days from hospitalization and positive test to death, censored at 28 days
