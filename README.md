@@ -1,6 +1,4 @@
-
 # The disconnect between development and intended use of clinical prediction models for Covid-19: a systematic review and real-world data illustration
-
 
   R code repository for the paper "The disconnect between development and intended use of clinical prediction models for Covid-19: a systematic review and real-world data illustration".
 
@@ -10,13 +8,20 @@
 
 * [Covid-19 2020 RIVM data](Data/datahosp.rda): the data used for the analysis. For privacy reasons, 27 patients were removed. The analysis results provided by these data only differ very slightly from the results presented in the paper.
 
+You can download a zip file containing the directory by clicking Code -> Download ZIP at the top-right of this Github page.
 
-  Data description:
+### Data description:
 
-* **Age_cat**: Patient age, categorized (less or equal to 50, 50 - 59, 60 - 69, 70 - 79, 80 - 89, over 90)
-* **Sex_m**: Patient gender (0 = Male, 1 = Female)
-* **N_comobidities**: Number of medical conditions, capped at 3
-* **DaysToDeath**: Days from hospitalization and positive test to death, censored at 28 days
-* **Death**: Death status indicator related to DaysToDeath (0 = alive, 1 = dead)
-* **DaysToICU**: Days from hospitalization and positive test to death, censored at 28 days
-* **Death**: ICU treatment status indicator related to DaysToICU (0 = untreated, 1 = treated)
+The rights to the original dataset used in this paper belong to the Dutch National Institute for Public Health and the Environment (RIVM). Requests to access the original data should be directed to COVID-19EPI@rivm.nl. To provide insight into the analyses that were conducted for this study, we provide here a subset of the data, to comply with privacy regulations. 
+
+The original data consist of 22324 hospitalized patients that tested positive for SARS-CoV-2 on a PCR  test before December 31st, 2020, with follow-up until January 31st, 2021. We excluded patients with a positive test result obtained after death (n = 64) as well as patients with missing information on age and sex  (n = 9). The final dataset used in the analysis set consisted of 22251 cases.
+
+### Authors:
+
+| Author                   | Affiliation                                                                                                                                                |
+| ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Ilaria Prosepe**       | Department of Biomedical Data Sciences, Leiden University Medical Center, Leiden, Netherlands                                                              |
+| **Rolf H. H. Groenwold** | Department of Clinical Epidemiology, Leiden University Medical Center, Leiden, Netherlands                                                                 |
+| **Rachel Knevel**        | Department of Rheumatology, Leiden University Medical Center, Leiden, Netherlands                                                                          |
+| **Romin Pajouheshnia**   | Division of Pharmacoepidemiology and Clinical Pharmacology, Utrecht Institute for Pharmaceutical Sciences (UIPS), Utrecht University, Utrecht, Netherlands |
+| **Nan van Geloven**      | Department of Biomedical Data Sciences, Leiden University Medical Center, Leiden, Netherlands                                                              |
