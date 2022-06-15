@@ -1,16 +1,26 @@
 #------------------------------------------------------------------------------#
-# Load packages and simulated data
+# Load packages and data
 #------------------------------------------------------------------------------#
 library(tidyverse)
 library(survival)
-library(mstate)
+library(mstate) # requires version 0.3.2
+library(ggpubr)
 
 load("Data/datahosp.rda")
 
 dfr <- data_hosp
 
+# Variables description:
+# * Age_cat: Patient age, categorized (less or equal to 50, 50 - 59, 60 - 69, 70 - 79, 80 - 89, over 90)
+# * Sex_m: Patient gender (0 = Male, 1 = Female)
+# * N_comobidities: Number of medical conditions, capped at 3
+# * DaysToDeath: Days from hospitalization and positive test to death, censored at 28 days
+# * Death: Death status indicator related to DaysToDeath (0 = alive, 1 = dead)
+# * DaysToICU: Days from hospitalization and positive test to death, censored at 28 days
+# * Death: ICU treatment status indicator related to DaysToICU (0 = untreated, 1 = treated)
+
 #------------------------------------------------------------------------------#
-# Analysis on simulated data
+# Analysis 
 #------------------------------------------------------------------------------#
 ### 1) Ignore Treatment --------------------------------------------------------
 ### ----------------------------------------------------------------------------
@@ -132,7 +142,7 @@ scatt_hosp <- scatt_hosp %>%
 scatt_hosp$N_Comorbidities <- factor(scatt_hosp$N_Comorbidities, levels = c(0,1,2,3),
                                      labels = c("0", "1", "2", "\u2265 3"))
 
-# Figure 1:
+# The 6 scatterplots of Figure 1:
 p1 <- ggplot(scatt_hosp, aes(IT, WU, color = Age_cat, shape = Sex, size = N_Comorbidities)) +
   geom_point(alpha = 0.7)+
   scale_size_discrete(range = c(1,2)) +
@@ -194,6 +204,7 @@ p6 <- ggplot(scatt_hosp, aes(Hyp, WU, color = Age_cat, shape = Sex, size = N_Com
   ylim(c(0, 0.8)) +
   theme_bw()
 
+# Figure 1:
 ggpubr::ggarrange(p1, p2, p3, p4, p6, p5, ncol=2, nrow=3, common.legend = TRUE, legend="right")
 
 
